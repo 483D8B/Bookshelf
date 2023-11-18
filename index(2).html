@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+  <script src="bookshelfObject.js"></script>
+  <title>My Bookshelf</title>
+  <style>
+    /* CSS Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+	      scrollbar-color: #483d8b aliceblue;
+    scrollbar-width: thin;
+    caret-color: black;
+    cursor: url("data:image/x-icon;base64,AAACAAEAICAAAAAAAACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAgBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA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AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP+AAID/cQBx/x4AHvUAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/3EAcf8eAB71AAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/HgAe9QAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABcAF9oAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA///////////////////////////////////////////////////////////////////////////////////////////7////MP///wD///8A////Af///wA///8AP///AH///wD///8B////A////wf///8P////H////z////8="), default;
+    }
+	
+	::-webkit-scrollbar{
+	display:none;
+	}
+
+    body {
+	overflow-x:hidden;
+    }
+
+    :root {
+      --spine-pyramid: linear-gradient(
+      315deg,
+      transparent 75%,
+      rgba(255, 255, 255, 0.1) 0
+      ),
+      linear-gradient(
+        45deg,
+         transparent 75%,
+          rgba(255, 255, 255, 0.1) 0
+      ),
+      linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.2) 166px,
+        transparent 0
+      ),
+      linear-gradient(
+        45deg,
+        rgba(0, 0, 0, 0.1) 75%,
+        transparent 0
+      );
+      background-size: 20px 20px;
+    --spine-stairs: repeating-linear-gradient(
+        63deg,
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0.1) 1px,
+        transparent 3px,
+        transparent 0
+      ),
+      linear-gradient(
+        127deg,
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0.1) 90px,
+        transparent 55%,
+        transparent 0
+      ),
+      linear-gradient(
+        transparent 51%,
+        rgba(0, 0, 0, 0.1) 170px
+      );
+      background-size: 70px 120px;
+    --spine-argyle: repeating-linear-gradient(
+        120deg,
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0.1) 1px,
+        transparent 1px,
+        transparent 60px
+      ),
+      repeating-linear-gradient(
+        60deg,
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0.1) 1px,
+        transparent 1px,
+        transparent 60px
+      ),
+      linear-gradient(
+        60deg,
+        rgba(0, 0, 0, 0.1) 25%,
+        transparent 25%,
+        transparent 75%,
+        rgba(0, 0, 0, 0.1) 75%,
+        rgba(0, 0, 0, 0.1)
+      ),
+      linear-gradient(
+        120deg,
+        rgba(0, 0, 0, 0.1) 25%,
+        transparent 25%,
+        transparent 75%,
+        rgba(0, 0, 0, 0.1) 75%,
+        rgba(0, 0, 0, 0.1)
+      );
+    background-size: 70px 120px;
+    --spine-tartan: repeating-linear-gradient(
+        transparent,
+        transparent 50px,
+        rgba(0, 0, 0, 0.1) 50px,
+        rgba(0, 0, 0, 0.1) 53px,
+        transparent 53px,
+        transparent 63px,
+        rgba(0, 0, 0, 0.1) 63px,
+        rgba(0, 0, 0, 0.1) 66px,
+        transparent 66px,
+        transparent 116px,
+        rgba(0, 0, 0, 0.1) 116px,
+        rgba(0, 0, 0, 0.1) 166px,
+        rgba(255, 255, 255, 0.1) 166px,
+        rgba(255, 255, 255, 0.1) 169px,
+        rgba(0, 0, 0, 0.1) 169px,
+        rgba(0, 0, 0, 0.1) 179px,
+        rgba(255, 255, 255, 0.1) 179px,
+        rgba(255, 255, 255, 0.1) 182px,
+        rgba(0, 0, 0, 0.1) 182px,
+        rgba(0, 0, 0, 0.1) 232px,
+        transparent 232px
+      ),
+      repeating-linear-gradient(
+        270deg,
+        transparent,
+        transparent 50px,
+        rgba(0, 0, 0, 0.4) 50px,
+        rgba(0, 0, 0, 0.4) 53px,
+        transparent 53px,
+        transparent 63px,
+        rgba(0, 0, 0, 0.4) 63px,
+        rgba(0, 0, 0, 0.4) 66px,
+        transparent 66px,
+        transparent 116px,
+        rgba(0, 0, 0, 0.5) 116px,
+        rgba(0, 0, 0, 0.5) 166px,
+        rgba(255, 255, 255, 0.2) 166px,
+        rgba(255, 255, 255, 0.2) 169px,
+        rgba(0, 0, 0, 0.5) 169px,
+        rgba(0, 0, 0, 0.5) 179px,
+        rgba(255, 255, 255, 0.2) 179px,
+        rgba(255, 255, 255, 0.2) 182px,
+        rgba(0, 0, 0, 0.5) 182px,
+        rgba(0, 0, 0, 0.5) 232px,
+        transparent 232px
+      ),
+      repeating-linear-gradient(
+        125deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.2) 2px,
+        rgba(0, 0, 0, 0.2) 3px,
+        transparent 3px,
+        transparent 5px,
+        rgba(0, 0, 0, 0.2) 5px
+      );
+    }
+	
+	  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #1b1a23;
+    /*display: block; */
+	z-index:90;
+  }
+
+
+    #container,
+    #container2,
+    #container3 {
+      display: flex;
+      flex-wrap: wrap;
+      border: solid 10px black;
+      background-image: url('bamboo.webp');
+      background-size: cover;
+      background-repeat: no-repeat;
+      border-radius: 5px;
+      border-image: url("woodBorder.webp") 30 30 stretch;
+      border: 15px solid url("woodBorder.webp") 30 30 stretch;
+      box-shadow: inset 0px 12px 25px 5px rgba(0, 0, 0, 0.7);
+      border-top: 30px solid;
+    }
+
+
+    .book {
+    width: 50px;
+    height: 250px;
+    position: relative;
+    margin-left: 1px;
+    transform-style: preserve-3d;
+    transform: translateZ(0) rotateY(0);
+    transition: transform 1s;
+    background-image: var(--spine-tartan);
+    border-radius: 10px;
+  }
+  
+  .side {
+    position: absolute;
+    border: 2px solid black;
+    border-radius: 3px;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+    transform-origin: center left;
+    border-radius: 5px;
+  }
+  
+  .spine {
+    position: relative;
+    width: 50px;
+    height: 250px;
+    /* Patterns from: https://projects.verou.me/css3patterns/ */
+    transform: rotateY(0deg) translateZ(0px);
+  }
+  
+  .spine-title {
+    margin: 2px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    font-size: 0.8em;
+    color:white;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	background-color: hsla(0%, 0%, 0%, 0.3);
+  }
+  
+  .spine-author {
+    position: absolute;
+    color: black;
+    background-color: hsla(0, 0%, 100%, 0.7);
+    bottom: 0px;
+    padding: 2px;
+    border-radius: 3px;
+    left: 0; /* no idea why 20% centers it */
+    writing-mode: vertical-rl;
+    font-size: 0.5em;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  
+  .top {
+    width: 50px;
+    height: 190px;
+    top: 0px;  /* hmm, why -2 and not 0? */
+    background-image: linear-gradient(90deg, white 90%, gray 10%);
+    background-size: 5px 5px;
+    transform: rotateX(90deg) translateZ(95px) translateY(-95px);
+  }
+  
+  .cover {
+    width: 190px;
+    height: 250px;
+    top: 0px;
+    background-image: url("https://picsum.photos/190/280");
+    background-size: contain;
+    background-repeat: round;
+    left: 50px;
+    transform: rotateY(90deg) translateZ(0);
+    transition: transform 1s;
+  }
+  
+  .book:hover {
+    transform: rotateX(-25deg) rotateY(-40deg) rotateZ(-15deg) translateY(50px)
+      translateX(-30px);
+	  z-index:10;
+  }
+
+    .inner {
+      position: absolute;
+      top: 50%;
+      left: 40%;
+      margin: 10px;
+      width: 250px;
+      font-size: 1em;
+      color: white;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    h2{
+      position: absolute;
+      color: white;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      padding-left: 10px;
+      text-shadow: -1px -1px 1px #fff, 1px 1px 1px #000;
+      opacity: 0.3;
+      text-align: center;
+      letter-spacing: 5px;
+      text-shadow: 0 0 10px black, 0 0 20px black, 0 0 30px black;
+      color: #fff;
+      width: 98vw;%
+    }
+
+  
+    .rotate {
+      transform: translateX(-50%) translateY(-50%) rotate(90deg);
+    }
+	
+	
+
+  .power-switch {
+	 --color-invert: #fff;
+	 position: absolute;
+	 top:0;
+	 right:0;
+	 margin-top:1em;
+	 margin-right:1em;
+	 display: flex;
+	 justify-content: center;
+	 align-items: center;
+	 width: 50px;
+	 height: 50px;
+	 border-radius:50%;
+	 background: #1b1a23;
+}
+ .power-switch .button {
+	 width: 100%;
+	 height: 100%;
+	 display: flex;
+	 justify-content: center;
+	 align-items: center;
+	 position: relative;
+}
+ .power-switch .button:after {
+	 content: "";
+	 width: 100%;
+	 height: 100%;
+	 position: absolute;
+	 background: radial-gradient(circle closest-side, var(--color-invert), transparent);
+	 filter: blur(1px);
+	 opacity: 0;
+	 transition: opacity 1s ease, transform 1s ease;
+	 transform: perspective(1px) translateZ(0);
+	 backface-visibility: hidden;
+}
+ .power-switch .button .power-on, .power-switch .button .power-off {
+	 height: 100%;
+	 width: 100%;
+	 position: absolute;
+	 z-index: 91;
+	 fill: none;
+	 stroke: var(--color-invert);
+	 stroke-width: 8px;
+	 stroke-linecap: round;
+	 stroke-linejoin: round;
+}
+ .power-switch .button .power-on .line, .power-switch .button .power-off .line {
+	 opacity: 0.2;
+}
+ .power-switch .button .power-on .circle, .power-switch .button .power-off .circle {
+	 opacity: 0.2;
+	 transform: rotate(-58deg);
+	 transform-origin: center 26.66px;
+	 stroke-dasharray: 220;
+	 stroke-dashoffset: 40;
+}
+ .power-switch .button .power-on {
+	 filter: drop-shadow(0px 0px 6px rgba(255, 255, 255, .8));
+}
+ .power-switch .button .power-on .line {
+	 opacity: 0;
+	 transition: opacity 0.3s ease 0.4s;
+}
+ .power-switch .button .power-on .circle {
+	 opacity: 1;
+	 stroke-dashoffset: 220;
+	 transition: transform 0s ease, stroke-dashoffset 0.4s ease 0s;
+}
+ .power-switch input {
+	 position: absolute;
+	 height: 100%;
+	 width: 100%;
+	 z-index: 92;
+	 cursor: pointer;
+	 opacity: 0;
+}
+ .power-switch input:checked + .button:after {
+	 opacity: 0.8;
+	 transform: scale(2) perspective(1px) translateZ(0);
+	 backface-visibility: hidden;
+	 transition: opacity 0.5s ease, transform 0.5s ease;
+}
+ .power-switch input:checked + .button .power-on, .power-switch input:checked + .button .power-off {
+	 animation: click-animation 0.3s ease forwards;
+	 transform: scale(1);
+}
+ .power-switch input:checked + .button .power-on .line, .power-switch input:checked + .button .power-off .line {
+	 animation: line-animation 0.8s ease-in forwards;
+}
+ .power-switch input:checked + .button .power-on .circle, .power-switch input:checked + .button .power-off .circle {
+	 transform: rotate(302deg);
+}
+ .power-switch input:checked + .button .power-on .line {
+	 opacity: 1;
+	 transition: opacity 0.05s ease-in 0.55s;
+}
+ .power-switch input:checked + .button .power-on .circle {
+	 transform: rotate(302deg);
+	 stroke-dashoffset: 40;
+	 transition: transform 0.4s ease 0.2s, stroke-dashoffset 0.4s ease 0.2s;
+}
+ @keyframes line-animation {
+	 0% {
+		 transform: translateY(0);
+	}
+	 10% {
+		 transform: translateY(3.33px);
+	}
+	 40% {
+		 transform: translateY(-8.33px);
+	}
+	 60% {
+		 transform: translateY(-8.33px);
+	}
+	 85% {
+		 transform: translateY(3.33px);
+	}
+	 100% {
+		 transform: translateY(0px);
+	}
+}
+ @keyframes click-animation {
+	 0% {
+		 transform: scale(1);
+	}
+	 50% {
+		 transform: scale(0.9);
+	}
+	 100% {
+		 transform: scale(1);
+	}
+}
+
+
+  </style>
+</head>
+
+<body>
+  <!-- Your content here -->
+  <div class="overlay"></div>
+  
+  
+  <div class="power-switch">
+  <input type="checkbox" />
+  <div class="button">
+    <svg class="power-off">
+      <use xlink:href="#line" class="line" />
+      <use xlink:href="#circle" class="circle" />
+    </svg>
+    <svg class="power-on">
+      <use xlink:href="#line" class="line" />
+      <use xlink:href="#circle" class="circle" />
+    </svg>
+  </div>
+</div>
+
+<!-- SVG -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150" id="line">
+    <line x1="75" y1="34" x2="75" y2="58"/>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150" id="circle">
+    <circle cx="75" cy="80" r="35"/>
+  </symbol>
+</svg>
+  
+  <h2>Already Read</h2>
+  <div id="container">
+    <span id="loading">Fetching latest books...</span>
+  </div>
+  <h2>Currently Reading</h2>
+  <div id="container2">
+    <div id="currentlyReading">
+      <span id="loadingCurrentlyReading">Fetching currently reading books...</span>
+    </div>
+  </div>
+
+  <h2>Want to Read</h2>
+  <div id="container3">
+    <!-- Add a container for Want to Read -->
+    <div id="wantToRead">
+      <span id="loadingWantToRead">Fetching want to read books...</span>
+    </div>
+  </div>
+
+  <script>
+    !function($,r){if("object"==typeof exports){var e=r();"object"==typeof module&&module&&module.exports&&(exports=module.exports=e),exports.randomColor=e}else"function"==typeof define&&define.amd?define([],r):$.randomColor=r()}(this,function(){var $=null,r={};u("monochrome",null,[[0,0],[100,0],]),u("red",[-26,18],[[20,100],[30,92],[40,89],[50,85],[60,78],[70,70],[80,60],[90,55],[100,50],]),u("orange",[18,46],[[20,100],[30,93],[40,88],[50,86],[60,85],[70,70],[100,70],]),u("yellow",[46,62],[[25,100],[40,94],[50,89],[60,86],[70,84],[80,82],[90,80],[100,75],]),u("green",[62,178],[[30,100],[40,90],[50,85],[60,81],[70,74],[80,64],[90,50],[100,40],]),u("blue",[178,257],[[20,100],[30,86],[40,80],[50,74],[60,60],[70,52],[80,44],[90,39],[100,35],]),u("purple",[257,282],[[20,100],[30,87],[40,79],[50,70],[60,65],[70,59],[80,52],[90,45],[100,42],]),u("pink",[282,334],[[20,100],[30,90],[40,86],[60,84],[80,80],[90,75],[100,73],]);var e=[],n=function(u){if(void 0!==(u=u||{}).seed&&null!==u.seed&&u.seed===parseInt(u.seed,10))$=u.seed;else if("string"==typeof u.seed)$=function $(r){for(var e=0,n=0;n!==r.length&&!(e>=Number.MAX_SAFE_INTEGER);n++)e+=r.charCodeAt(n);return e}(u.seed);else if(void 0!==u.seed&&null!==u.seed)throw TypeError("The seed value must be an integer or string");else $=null;if(null!==u.count&&void 0!==u.count){for(var _,l,f,c=u.count,h=[],g=0;g<u.count;g++)e.push(!1);for(u.count=null;c>h.length;){var v=n(u);null!==$&&(u.seed=$),h.push(v)}return u.count=c,h}return l=function $(r,e){if("monochrome"===e.hue)return 0;if("random"===e.luminosity)return a([0,100]);var n,u=(n=r,t(n).saturationRange),o=u[0],i=u[1];switch(e.luminosity){case"bright":o=55;break;case"dark":o=i-10;break;case"light":i=55}return a([o,i])}(_=function $(n){if(e.length>0){var u,o=function $(e){if(isNaN(e)){if("string"==typeof e){if(r[e]){var n=r[e];if(n.hueRange)return n.hueRange}else if(e.match(/^#?([0-9A-F]{3}|[0-9A-F]{6})$/i)){var a=i(e)[0];return t(a).hueRange}}}else{var u=parseInt(e);if(u<360&&u>0)return t(e).hueRange}return[0,360]}(n.hue),s=a(o),_=(o[1]-o[0])/e.length,l=parseInt((s-o[0])/_);return!0===e[l]?l=(l+2)%e.length:e[l]=!0,(s=a(o=[(o[0]+l*_)%359,(o[0]+(l+1)*_)%359]))<0&&(s=360+s),s}var o=function $(e){if("number"==typeof parseInt(e)){var n=parseInt(e);if(n<360&&n>0)return[n,n]}if("string"==typeof e){if(r[e]){var t=r[e];if(t.hueRange)return t.hueRange}else if(e.match(/^#?([0-9A-F]{3}|[0-9A-F]{6})$/i)){var a=i(e)[0];return[a,a]}}return[0,360]}(n.hue);return(s=a(o))<0&&(s=360+s),s}(u),u),f=function $(r,e,n){var u=function $(r,e){for(var n=t(r).lowerBounds,a=0;a<n.length-1;a++){var u=n[a][0],o=n[a][1],i=n[a+1][0],s=n[a+1][1];if(e>=u&&e<=i){var _=(s-o)/(i-u),l=o-_*u;return _*e+l}}return 0}(r,e),o=100;switch(n.luminosity){case"dark":o=u+20;break;case"light":u=(o+u)/2;break;case"random":u=0,o=100}return a([u,o])}(_,l,u),function $(r,e){switch(e.format){case"hsvArray":return r;case"hslArray":return s(r);case"hsl":var n=s(r);return"hsl("+n[0]+", "+n[1]+"%, "+n[2]+"%)";case"hsla":var t=s(r),a=e.alpha||Math.random();return"hsla("+t[0]+", "+t[1]+"%, "+t[2]+"%, "+a+")";case"rgbArray":return o(r);case"rgb":return"rgb("+o(r).join(", ")+")";case"rgba":var u=o(r),a=e.alpha||Math.random();return"rgba("+u.join(", ")+", "+a+")";default:return function $(r){var e=o(r);function n($){var r=$.toString(16);return 1==r.length?"0"+r:r}return"#"+n(e[0])+n(e[1])+n(e[2])}(r)}}([_,l,f],u)};function t($){for(var e in $>=334&&$<=360&&($-=360),r){var n=r[e];if(n.hueRange&&$>=n.hueRange[0]&&$<=n.hueRange[1])return r[e]}return"Color not found"}function a(r){if(null===$){var e=Math.random();return e+=.618033988749895,e%=1,Math.floor(r[0]+e*(r[1]+1-r[0]))}var n=r[1]||1,t=r[0]||0;return Math.floor(t+($=(9301*$+49297)%233280)/233280*(n-t))}function u($,e,n){var t=n[0][0],a=n[n.length-1][0],u=n[n.length-1][1],o=n[0][1];r[$]={hueRange:e,lowerBounds:n,saturationRange:[t,a],brightnessRange:[u,o]}}function o($){var r=$[0];0===r&&(r=1),360===r&&(r=359),r/=360;var e=$[1]/100,n=$[2]/100,t=Math.floor(6*r),a=6*r-t,u=n*(1-e),o=n*(1-a*e),i=n*(1-(1-a)*e),s=256,_=256,l=256;switch(t){case 0:s=n,_=i,l=u;break;case 1:s=o,_=n,l=u;break;case 2:s=u,_=n,l=i;break;case 3:s=u,_=o,l=n;break;case 4:s=i,_=u,l=n;break;case 5:s=n,_=u,l=o}return[Math.floor(255*s),Math.floor(255*_),Math.floor(255*l),]}function i($){var r=parseInt(($=3===($=$.replace(/^#/,"")).length?$.replace(/(.)/g,"$1$1"):$).substr(0,2),16)/255,e=parseInt($.substr(2,2),16)/255,n=parseInt($.substr(4,2),16)/255,t=Math.max(r,e,n),a=t-Math.min(r,e,n),u=t?a/t:0;switch(t){case r:return[60*((e-n)/a%6)||0,u,t];case e:return[60*((n-r)/a+2)||0,u,t];case n:return[60*((r-e)/a+4)||0,u,t]}}function s($){var r=$[0],e=$[1]/100,n=$[2]/100,t=(2-e)*n;return[r,Math.round(e*n/(t<1?t:2-t)*1e4)/100,t/2*100,]}return n});
+    // Your script here
+	
+
+  // Define a cache object
+  const cache = {};
+            // Function to calculate translateZ based on the number of pages
+function calculateTranslateZ(width) {
+  let temp = parseFloat(width);
+
+return temp-50
+
+}
+
+
+   // Function to fetch data from the server or use the cached data
+   function fetchData(url, cacheKey) {
+    if (cache[cacheKey]) {
+      // If data is present in the cache, return it
+      return Promise.resolve(cache[cacheKey]);
+    } else {
+      // If data is not in the cache, fetch it from the server
+      return fetch(url, { mode: 'cors' })
+        .then(response => response.json())
+        .then(data => {
+          // Store the fetched data in the cache
+          cache[cacheKey] = data;
+          return data;
+        });
+    }
+  }
+
+  fetchData('https://openlibrary.org/people/483d8b/books/already-read.json', 'alreadyRead')
+      .then(data => {
+        const arr = [];
+
+        $("#loading").remove();
+
+        //console.log(data);
+
+        // Function to handle display after all fetch calls are completed
+        function displayBooks() {
+          // sort by date
+          const dataset = arr.sort(function (a, b) {
+            return b.read_timestamp - a.read_timestamp;
+          });
+
+          dataset.forEach(d => {
+			let entry = isbnColorMap[d.isbn13];
+			let bgSpine, titleColor;
+			if (entry) {
+            bgSpine = entry.color || randomColor();
+			titleColor = entry.title || randomColor();
+			}
+			else {
+			  bgSpine = randomColor();
+			  titleColor = randomColor();
+			}
+            let width = calculateWidth(d.num_pages);
+            let cover_width = parseFloat(width)/3;
+            cover_width += "px";
+            let imgLink = "https://covers.openlibrary.org/b/ISBN/"+d.isbn13+"-M.jpg";
+            $("#container").append(`
+  <a>
+    <div class="book" id="${d.ol_id}" style="background-color: ${bgSpine}; width: ${width}">
+      <div class="side spine" style="width: ${width}">
+        <span class="spine-title" style="color: ${titleColor}; width: ${width}">${d.title}</span>
+        <span class="spine-author">${d.author}</span>
+      </div>
+      <div class="side top" style="width: ${width}"></div>
+      <div class="side cover" style="background-image: url(${imgLink});width: 190px;transform: rotateY(90deg) translateZ(${calculateTranslateZ(width)}px)"></div>
+    </div>
+  </a>
+`);
+          });
+
+
+          $("#container div.book").on("click", function () {
+            // console.log( $( this ).attr('id') );
+            let edition = $(this).attr('id');
+            // window.open("https://openlibrary.org/books/"+edition, "_blank");
+          });
+
+          //console.log(dataset);
+        }
+
+        // pull out relevant data
+        const fetchPromises = data.reading_log_entries.map(d => {
+          let obj = {};
+
+          obj.title = d.work.title;
+          obj.read_date = d.logged_date;
+          obj.ol_id = d.logged_edition.split("/")[2];
+          obj.read_timestamp = new Date(d.logged_date.split(",")[0]);
+          obj.book_link = d.work.key;
+          obj.author = d.work.author_names[0];
+          obj.author_link = d.work.author_keys[0];
+          const link = "https://openlibrary.org/books/" + obj.ol_id + ".json";
+
+          // Additional API call to get book details
+          return fetch(link, { mode: 'cors' })
+            .then(response => response.json())
+            .then(bookData => {
+              // Extract number of pages and add it to the object
+              obj.num_pages = bookData.number_of_pages !== undefined ? bookData.number_of_pages : "N/A";
+              obj.isbn13 = bookData.isbn_13 ? bookData.isbn_13[0] : 'Not available';  
+              arr.push(obj);
+            });
+        });
+
+        // Wait for all fetch calls to complete before displaying books
+        Promise.all(fetchPromises)
+          .then(() => {
+            displayBooks();
+          });
+      });
+
+      // Fetch data for Currently Reading
+      fetchData('https://openlibrary.org/people/483d8b/books/currently-reading.json', 'currentlyReading')
+      .then(data => {
+        const arrCurrentlyReading = [];
+
+        $("#loadingCurrentlyReading").remove();
+
+        function displayCurrentlyReading() {
+          // sort by date
+          const dataset = arrCurrentlyReading.sort(function (a, b) {
+            return b.read_timestamp - a.read_timestamp;
+          });
+
+          dataset.forEach(d => {
+			let entry = isbnColorMap[d.isbn13];
+			let bgSpine, titleColor;
+			if (entry) {
+            bgSpine = entry.color || randomColor();
+			titleColor = entry.title || randomColor();
+			}
+			else {
+			  bgSpine = randomColor();
+			  titleColor = randomColor();
+			}
+            let width = calculateWidth(d.num_pages);
+            let cover_width = parseFloat(width)/3;
+            cover_width += "px";
+            let imgLink = "https://covers.openlibrary.org/b/ISBN/"+d.isbn13+"-M.jpg";
+            $("#container2").append(`
+  <a>
+    <div class="book" id="${d.ol_id}" style="background-color: ${bgSpine}; width: ${width}">
+      <div class="side spine" style="width: ${width}">
+        <span class="spine-title" style="color: ${titleColor}; width: ${width}">${d.title}</span>
+        <span class="spine-author">${d.author}</span>
+      </div>
+      <div class="side top" style="width: ${width}"></div>
+      <div class="side cover" style="background-image: url(${imgLink});width: 190px;transform: rotateY(90deg) translateZ(${calculateTranslateZ(width)}px)"></div>
+    </div>
+  </a>
+`);
+
+          });
+
+          $("#container2 div.book").on("click", function () {
+            // console.log( $( this ).attr('id') );
+            let edition = $(this).attr('id');
+            // window.open("https://openlibrary.org/books/"+edition, "_blank");
+          });
+
+          //console.log(dataset);
+        }
+
+                // pull out relevant data
+                const fetchPromisesCurrentlyReading = data.reading_log_entries.map(d => {
+          let obj = {};
+
+          obj.title = d.work.title;
+          obj.read_date = d.logged_date;
+          obj.ol_id = d.logged_edition.split("/")[2];
+          obj.read_timestamp = new Date(d.logged_date.split(",")[0]);
+          obj.book_link = d.work.key;
+          obj.author = d.work.author_names[0];
+          obj.author_link = d.work.author_keys[0];
+          const link = "https://openlibrary.org/books/" + obj.ol_id + ".json";
+
+          // Additional API call to get book details
+          return fetch(link, { mode: 'cors' })
+            .then(response => response.json())
+            .then(bookData => {
+              // Extract number of pages and add it to the object
+              obj.num_pages = bookData.number_of_pages !== undefined ? bookData.number_of_pages : "N/A";
+              obj.isbn13 = bookData.isbn_13 ? bookData.isbn_13[0] : 'Not available';  
+              arrCurrentlyReading.push(obj);
+            });
+        });
+
+        Promise.all(fetchPromisesCurrentlyReading)
+          .then(() => {
+            displayCurrentlyReading();
+          });
+      });
+
+    // Fetch data for Want to Read
+    fetchData('https://openlibrary.org/people/483d8b/books/want-to-read.json', 'wantToRead')
+      .then(data => {
+        const arrWantToRead = [];
+
+        $("#loadingWantToRead").remove();
+
+        // Function to handle display for Want to Read
+    function displayWantToRead() {
+                // sort by date
+                const dataset = arrWantToRead .sort(function (a, b) {
+            return b.read_timestamp - a.read_timestamp;
+          });
+
+          dataset.forEach(d => {
+			let entry = isbnColorMap[d.isbn13];
+			let bgSpine, titleColor;
+			if (entry) {
+            bgSpine = entry.color || randomColor();
+			titleColor = entry.title || randomColor();
+			}
+			else {
+			  bgSpine = randomColor();
+			  titleColor = randomColor();
+			}
+            let width = calculateWidth(d.num_pages);
+            let cover_width = parseFloat(width)/3;
+            cover_width += "px";
+            let imgLink = "https://covers.openlibrary.org/b/ISBN/"+d.isbn13+"-M.jpg";
+            $("#container3").append(`
+  <a>
+    <div class="book" id="${d.ol_id}" style="background-color: ${bgSpine}; width: ${width}">
+      <div class="side spine" style="width: ${width}">
+        <span class="spine-title" style="color: ${titleColor}; width: ${width}">${d.title}</span>
+        <span class="spine-author">${d.author}</span>
+      </div>
+      <div class="side top" style="width: ${width}"></div>
+      <div class="side cover" style="background-image: url(${imgLink});width: 190px;transform: rotateY(90deg) translateZ(${calculateTranslateZ(width)}px)"></div>
+    </div>
+  </a>
+`);
+
+          });
+
+          $("#container3 div.book").on("click", function () {
+            // console.log( $( this ).attr('id') );
+            let edition = $(this).attr('id');
+            // window.open("https://openlibrary.org/books/"+edition, "_blank");
+          });
+
+          //console.log(dataset);
+    }
+
+                   // pull out relevant data
+                   const fetchPromisesWantToRead = data.reading_log_entries.map(d => {
+          let obj = {};
+
+          obj.title = d.work.title;
+          obj.read_date = d.logged_date;
+          obj.ol_id = d.logged_edition.split("/")[2];
+          obj.read_timestamp = new Date(d.logged_date.split(",")[0]);
+          obj.book_link = d.work.key;
+          obj.author = d.work.author_names[0];
+          obj.author_link = d.work.author_keys[0];
+          const link = "https://openlibrary.org/books/" + obj.ol_id + ".json";
+
+          // Additional API call to get book details
+          return fetch(link, { mode: 'cors' })
+            .then(response => response.json())
+            .then(bookData => {
+              // Extract number of pages and add it to the object
+              obj.num_pages = bookData.number_of_pages !== undefined ? bookData.number_of_pages : "N/A";
+              obj.isbn13 = bookData.isbn_13 ? bookData.isbn_13[0] : 'Not available';  
+              arrWantToRead .push(obj);
+            });
+        });
+
+
+        Promise.all(fetchPromisesWantToRead)
+          .then(() => {
+            displayWantToRead();
+          });
+      });
+
+
+
+
+    // Function to calculate width based on logarithmic scale
+    function calculateWidth(numPages) {
+      // Define the minimum and maximum width
+      const minWidth = 20;
+      const maxWidth = 100;
+
+      // Use linear scale to calculate width
+      const width = minWidth + (maxWidth - minWidth) * (numPages / 1000);
+
+      return Math.min(maxWidth, Math.max(minWidth, width)) + 'px';
+    }
+	
+	$(document).ready(function () {
+    // Get the checkbox and body elements
+    var checkbox = $('.power-switch input');
+	var overlay = $('.overlay');
+
+    // Attach a click event to the checkbox
+    checkbox.on('click', function () {
+// Toggle the overlay visibility with fade transition
+//overlay.toggle();
+
+if (overlay.is(':visible')) {
+        overlay.stop().animate({ opacity: 0 }, 2000, function() {
+          overlay.css('display', 'none');
+        });
+      } else {
+        overlay.css('display', 'block').stop().animate({ opacity: 1 }, 500);
+      }
+
+
+    });
+  });
+
+
+
+  </script>
+
+</body>
+
+</html>
