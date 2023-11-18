@@ -10,5 +10,7 @@ const isbnColorMap = {
   '9788807091766': { color: '#AB0840', title: '#FFF' },
   '9788804567028': { color: '#EAECED', title: '#000' },
   '9788842822363': { color: '#C2C4CE', title: '#000' },
- 
+  '9788845294044': { color: '#7B0831', title: '#FFF' },
+  '9788806564087': { color: '#D9D0C7', title: '#000' },
+  '9788845271403': { color: '#131313', title: '#FFF' },
 };
