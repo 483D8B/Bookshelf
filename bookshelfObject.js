@@ -18,6 +18,9 @@ const isbnColorMap = {
   '2560733169514': { color: '#c1b09d', title: '#000' },
   '2560733169513': { color: '#c1b09d', title: '#000' },
   '9788860045652': { color: '#fffaee', title: '#000' },
+  '9788842551805': { color: '#024f2f', title: '#FFF' },
+  '9788804758532': { color: '#ece5d5', title: '#000' },
+  
   
 
 };
