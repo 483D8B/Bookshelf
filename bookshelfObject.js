@@ -13,4 +13,11 @@ const isbnColorMap = {
   '9788845294044': { color: '#7B0831', title: '#FFF' },
   '9788806564087': { color: '#D9D0C7', title: '#000' },
   '9788845271403': { color: '#131313', title: '#FFF' },
+  '9788804354482': { color: '#131313', title: '#FFF' },
+  '9788851144470': { color: '#2f9dfc', title: '#FFF' },
+  '2560733169514': { color: '#c1b09d', title: '#000' },
+  '2560733169513': { color: '#c1b09d', title: '#000' },
+  '9788860045652': { color: '#fffaee', title: '#000' },
+  
+
 };
